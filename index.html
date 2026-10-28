@@ -1,55 +1,134 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sri Lakshmi Grocery Store</title>
+<title>Sri Lakshmi Grocery | Fresh & Quality</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7ed;color:#203b2b}
-header{background:#174b35;color:white;text-align:center;padding:28px 12px}
-header h1{margin:0 0 10px}
-.hero{text-align:center;padding:45px 16px;background:#dcebd5}
-.hero h2{font-size:28px}
-.btn{display:inline-block;background:#174b35;color:white;padding:12px 20px;border-radius:8px;text-decoration:none}
-section{padding:25px 14px}
-h2{text-align:center}
-.products{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:650px;margin:auto}
-.card{background:white;text-align:center;padding:20px 8px;border-radius:12px;box-shadow:0 2px 8px #ddd}
-.emoji{font-size:38px}
-.about{text-align:center;line-height:1.7;max-width:650px;margin:auto}
-footer{background:#174b35;color:white;text-align:center;padding:20px}
+:root{--green:#123d2c;--light:#f6f5eb;--gold:#e9bd65}
+body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#203529}
+header{background:var(--green);color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-size:21px;font-weight:bold}
+.brand span{color:var(--gold)}
+header small{color:#d7e8dc}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+.hero{padding:65px 7%;background:linear-gradient(120deg,#123d2c,#286547);color:white;display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.15;margin:12px 0}
+.hero p{line-height:1.8;color:#e0eee4}
+.tag{color:var(--gold);font-weight:bold;letter-spacing:2px}
+.hero-art{font-size:110px;text-align:center;background:#ffffff12;border:1px solid #ffffff25;border-radius:28px;padding:25px}
+.btn{display:inline-block;padding:13px 20px;background:var(--gold);color:#173b2b;border-radius:9px;text-decoration:none;font-weight:bold;margin-top:12px}
+section{padding:40px 6%}
+.section-head{text-align:center;margin-bottom:25px}
+.section-head h2{font-size:28px;margin-bottom:8px}
+.section-head p{color:#667469}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 auto;max-width:900px}
+.feature{background:white;border-radius:15px;padding:20px;text-align:center;box-shadow:0 5px 18px #163d2b0b}
+.feature .emoji{font-size:34px}
+.feature h3{margin:10px 0 5px}
+.feature p{color:#667469;font-size:14px;line-height:1.6}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1000px;margin:auto}
+.product{background:white;border-radius:16px;padding:20px 10px;text-align:center;border:1px solid #e9eadf;transition:transform .2s}
+.product:hover{transform:translateY(-4px)}
+.product .emoji{font-size:52px;background:#f1f5e9;border-radius:13px;padding:14px}
+.product h3{margin:15px 0 5px}
+.product p{color:#748073;font-size:13px}
+.about{background:#e8efdf;text-align:center}
+.about p{max-width:650px;margin:12px auto;line-height:1.9;color:#526253}
+.contact{text-align:center}
+.contact-card{max-width:600px;margin:auto;background:white;padding:25px;border-radius:18px;line-height:1.9}
+footer{background:var(--green);color:white;padding:25px 6%;text-align:center}
+footer p{margin:7px}
+.note{font-size:12px;color:#d6e6d8}
+@media(max-width:650px){
+ .hero{grid-template-columns:1fr;padding:45px 6%}
+ .hero-art{font-size:75px;padding:15px}
+ .features{grid-template-columns:1fr}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+ header{justify-content:center;text-align:center}
+ nav{justify-content:center}
+}
 </style>
 </head>
 <body>
 <header>
-<h1>🛒 Sri Lakshmi Grocery</h1>
-<p>Fresh Groceries • Everyday Essentials</p>
+ <div>
+  <div class="brand">🛒 Sri Lakshmi <span>Grocery</span></div>
+  <small>Freshness for Every Family</small>
+ </div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#products">Products</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact</a>
+ </nav>
 </header>
-<div class="hero">
-<h2>మీ ఇంటికి కావాల్సిన సరుకులు!</h2>
-<p>నాణ్యమైన నిత్యావసరాలు, సరసమైన ధరలు.</p>
-<a class="btn" href="#products">మా వస్తువులు చూడండి</a>
-</div>
-<section id="products">
-<h2>🧺 మా వస్తువులు</h2>
-<div class="products">
-<div class="card"><div class="emoji">🍚</div><h3>బియ్యం</h3><p>Rice</p></div>
-<div class="card"><div class="emoji">🫘</div><h3>పప్పులు</h3><p>Dal & Pulses</p></div>
-<div class="card"><div class="emoji">🫗</div><h3>వంట నూనెలు</h3><p>Cooking Oils</p></div>
-<div class="card"><div class="emoji">🥣</div><h3>నిత్యావసరాలు</h3><p>Daily Essentials</p></div>
-</div>
-</section>
-<section>
-<div class="about">
-<h2>🌿 మా గురించి</h2>
-<p>మీ రోజువారీ అవసరాల కోసం మా డెమో కిరాణా షాప్ వెబ్‌సైట్‌కు స్వాగతం!</p>
-<h2>📞 సంప్రదించండి</h2>
-<p>ఇక్కడ షాప్ చిరునామా, ఫోన్ నంబర్, పని వేళలు జోడించాలి.</p>
-</div>
-</section>
-<footer><p>Demo Website — Sri Lakshmi Grocery Store</p></footer>
+
+<main>
+ <div class="hero" id="home">
+  <div>
+   <div class="tag">WELCOME TO OUR STORE</div>
+   <h1>మీ కుటుంబానికి<br>నాణ్యమైన సరుకులు!</h1>
+   <p>రోజువారీ నిత్యావసరాలు, మంచి నాణ్యత, స్నేహపూర్వక సేవ — మీ ఇంటి అవసరాలకు ఒకే చోట.</p>
+   <a class="btn" href="#products">మా వస్తువులు చూడండి ↓</a>
+  </div>
+  <div class="hero-art">🥬 🛍️ 🍚</div>
+ </div>
+
+ <section>
+  <div class="section-head">
+   <h2>మమ్మల్ని ఎందుకు ఎంచుకోవాలి?</h2>
+   <p>మీ రోజువారీ షాపింగ్‌కు సులభమైన ఎంపిక</p>
+  </div>
+  <div class="features">
+   <div class="feature"><div class="emoji">🌿</div><h3>నాణ్యమైన సరుకులు</h3><p>రోజువారీ అవసరాల కోసం ఎంపిక చేసిన వస్తువులు.</p></div>
+   <div class="feature"><div class="emoji">💚</div><h3>స్నేహపూర్వక సేవ</h3><p>కస్టమర్లకు సహాయం చేయడమే మా ప్రాధాన్యం.</p></div>
+   <div class="feature"><div class="emoji">🪙</div><h3>సరసమైన ధరలు</h3><p>మీ బడ్జెట్‌కు సరిపోయే నిత్యావసరాలు.</p></div>
+  </div>
+ </section>
+
+ <section id="products">
+  <div class="section-head">
+   <h2>🧺 మా ఉత్పత్తులు</h2>
+   <p>మీ ఇంటికి అవసరమైన రోజువారీ వస్తువులు</p>
+  </div>
+  <div class="products">
+   <div class="product"><div class="emoji">🍚</div><h3>బియ్యం</h3><p>Rice varieties</p></div>
+   <div class="product"><div class="emoji">🫘</div><h3>పప్పులు</h3><p>Dal & Pulses</p></div>
+   <div class="product"><div class="emoji">🫗</div><h3>వంట నూనెలు</h3><p>Cooking Oils</p></div>
+   <div class="product"><div class="emoji">🌶️</div><h3>మసాలా దినుసులు</h3><p>Spices & Masala</p></div>
+   <div class="product"><div class="emoji">🍪</div><h3>స్నాక్స్</h3><p>Snacks & Biscuits</p></div>
+   <div class="product"><div class="emoji">🥛</div><h3>పాలు</h3><p>Dairy Essentials</p></div>
+   <div class="product"><div class="emoji">🧼</div><h3>గృహోపకరణాలు</h3><p>Home Essentials</p></div>
+   <div class="product"><div class="emoji">🧂</div><h3>ఇతర సరుకులు</h3><p>Everyday Needs</p></div>
+  </div>
+ </section>
+
+ <section class="about" id="about">
+  <div class="section-head"><h2>🌱 మా గురించి</h2></div>
+  <p>శ్రీ లక్ష్మి గ్రోసరీ డెమో వెబ్‌సైట్‌కు స్వాగతం! కుటుంబాలకు అవసరమైన నిత్యావసరాలను సులభంగా పరిచయం చేయడానికి ఈ నమూనాను రూపొందించాం. నిజమైన షాప్ వివరాలను యజమాని అనుమతితో జోడించవచ్చు.</p>
+ </section>
+
+ <section class="contact" id="contact">
+  <div class="section-head"><h2>📍 సంప్రదించండి</h2><p>షాప్ వివరాలను ఇక్కడ జోడించవచ్చు</p></div>
+  <div class="contact-card">
+   <p>🏪 చిరునామా: Demo store address</p>
+   <p>🕒 పని వేళలు: To be confirmed</p>
+   <p>📞 ఫోన్: To be added</p>
+   <p><small>ఇవి డెమో వివరాలు మాత్రమే. నిజమైన వివరాలతో మార్చాలి.</small></p>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <p>🛒 Sri Lakshmi Grocery Store</p>
+ <p class="note">Demo website created for portfolio presentation</p>
+ <p class="note">© 2026 Demo Design</p>
+</footer>
 </body>
 </html>
+
 
