@@ -1,17 +1,20 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#176b3a">
+<meta name="theme-color" content="#14532d">
 <title>Sri Lakshmi Grocery Store</title>
+
 <style>
 :root {
-  --green:#176b3a;
-  --light:#f1f9ef;
-  --gold:#f4c95d;
-  --text:#1d2a22;
-  --muted:#65736a;
+  --green:#14532d;
+  --green2:#238044;
+  --gold:#e9bd55;
+  --cream:#fff9e9;
+  --text:#203528;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -20,26 +23,36 @@ body {
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
   line-height:1.6;
+  background:
+    radial-gradient(ellipse at 5% 8%,#d7f2ce 0%,transparent 32%),
+    radial-gradient(ellipse at 95% 30%,#ffe8ad 0%,transparent 30%),
+    radial-gradient(ellipse at 10% 80%,#e4f4dc 0%,transparent 35%),
+    linear-gradient(135deg,#fffdf5,#f0f8e9,#fff7e3);
+  background-attachment:fixed;
 }
-a { text-decoration:none; color:inherit; }
+a { text-decoration:none;color:inherit; }
+button,input { font:inherit; }
 .topbar {
-  background:#104d2a;
-  color:white;
+  background:linear-gradient(90deg,#103d24,#237443,#103d24);
+  color:#fff6d9;
   text-align:center;
   padding:9px;
   font-size:13px;
+  letter-spacing:.3px;
 }
 header {
-  background:white;
   position:sticky;
   top:0;
   z-index:10;
-  box-shadow:0 3px 14px #102b1714;
+  background:#fffdf2ed;
+  backdrop-filter:blur(12px);
+  box-shadow:0 5px 22px #173c2515;
+  border-bottom:1px solid #e6d8a8;
 }
 .nav {
   max-width:1120px;
   margin:auto;
-  padding:14px 18px;
+  padding:13px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -51,15 +64,19 @@ header {
   gap:10px;
   color:var(--green);
   font-weight:800;
+  line-height:1.25;
 }
 .logo {
-  background:var(--green);
-  color:white;
-  border-radius:12px;
-  padding:9px;
-  font-size:25px;
+  background:linear-gradient(145deg,#1c783f,#104426);
+  color:#ffdf81;
+  border:2px solid #e9c969;
+  border-radius:15px;
+  padding:8px;
+  font-size:27px;
+  box-shadow:0 5px 12px #14532d20;
 }
-nav { display:flex; gap:15px; font-size:14px; font-weight:bold; }
+nav { display:flex;gap:16px;font-size:14px;font-weight:bold; }
+nav a:hover { color:#258348; }
 .btn {
   display:inline-block;
   border:0;
@@ -67,169 +84,225 @@ nav { display:flex; gap:15px; font-size:14px; font-weight:bold; }
   padding:12px 17px;
   font-weight:bold;
   cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
 }
-.green { background:var(--green); color:white; }
-.light { background:white; color:var(--green); border:1px solid #d9e7dc; }
+.btn:hover { transform:translateY(-2px);box-shadow:0 6px 15px #173c2520; }
+.green {
+  color:white;
+  background:linear-gradient(135deg,#27864b,#104d2a);
+  box-shadow:0 4px 12px #14532d25;
+}
+.light {
+  color:var(--green);
+  background:#fffdf5;
+  border:1px solid #dfc779;
+}
 .hero {
-  background:linear-gradient(120deg,#e5f5df,#fffaf0);
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 15%,#ffe9a9 0%,transparent 30%),
+    radial-gradient(circle at 8% 95%,#bce8b3 0%,transparent 35%),
+    linear-gradient(125deg,#e1f5d9,#fffaf0,#f8edc8);
+  border-bottom:1px solid #e5dfbd;
 }
 .hero-inner {
   max-width:1120px;
   margin:auto;
-  padding:60px 20px;
+  padding:62px 20px;
   display:grid;
   grid-template-columns:1.1fr .9fr;
   gap:35px;
   align-items:center;
 }
 .eyebrow {
-  color:var(--green);
-  background:#e1f2e4;
-  padding:7px 12px;
+  display:inline-block;
+  color:#14532d;
+  background:#ffffffb8;
+  border:1px solid #c4dfb9;
+  padding:7px 13px;
   border-radius:30px;
   font-size:12px;
   font-weight:bold;
 }
 h1 {
-  font-size:clamp(35px,5vw,56px);
+  font-size:clamp(36px,5vw,59px);
   line-height:1.12;
+  letter-spacing:-1.5px;
   color:#173c25;
+  margin:20px 0;
 }
-h1 span { color:#239653; }
-.hero p { color:var(--muted); }
+h1 span {
+  background:linear-gradient(90deg,#19723c,#9b6b13);
+  color:transparent;
+  background-clip:text;
+}
+.hero p { color:#526557; }
 .hero-art {
-  background:linear-gradient(145deg,#d8efce,#f9e9b9);
-  min-height:260px;
-  border-radius:28px;
+  min-height:300px;
+  border:2px solid #ffffffd9;
+  border-radius:35px;
   display:grid;
   place-items:center;
-  font-size:110px;
+  font-size:120px;
+  background:
+    radial-gradient(circle at 50% 35%,#fff9d5,#e2f1cf 65%,#b9dca9);
+  box-shadow:0 20px 45px #416b3b20,inset 0 0 25px #ffffffa0;
 }
-section { padding:50px 20px; }
-.container { max-width:1120px; margin:auto; }
-.section-head { text-align:center; margin-bottom:28px; }
-.section-head h2 { color:#173c25; margin-bottom:5px; }
-.section-head p { color:var(--muted); }
+section { padding:55px 20px; }
+.container { max-width:1120px;margin:auto; }
+.section-head { text-align:center;margin-bottom:30px; }
+.section-head h2 {
+  color:#17472b;
+  font-size:clamp(25px,4vw,35px);
+  margin:0 0 5px;
+}
+.section-head p { color:#647568;margin:5px 0; }
 .features {
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:15px;
+  gap:18px;
 }
 .feature,.contact-card {
-  border:1px solid #e5eee6;
-  border-radius:17px;
-  padding:22px;
-  background:white;
+  background:#ffffffc9;
+  border:1px solid #ffffff;
+  border-radius:20px;
+  padding:23px;
+  box-shadow:0 10px 28px #365d3010;
+  backdrop-filter:blur(6px);
 }
-.feature .emoji { font-size:30px; }
-.feature p,.contact-card p { color:var(--muted); font-size:14px; }
-#products { background:#fbfdf9; }
+.feature { border-top:3px solid #d9b85d; }
+.emoji { font-size:32px; }
+.feature h3,.contact-card h3 { color:#17472b; }
+.feature p,.contact-card p { color:#657468;font-size:14px; }
+#products {
+  background:linear-gradient(145deg,#ffffff9c,#e7f3dfb8,#fff6dfb8);
+  border-top:1px solid #ffffff;
+  border-bottom:1px solid #ffffff;
+}
 .tools {
   display:flex;
   flex-wrap:wrap;
   gap:12px;
   justify-content:space-between;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 .search {
   width:min(100%,360px);
-  padding:13px;
-  border:1px solid #d9e4da;
-  border-radius:12px;
-  font-size:15px;
+  padding:13px 15px;
+  border:1px solid #cbdcc8;
+  border-radius:13px;
+  background:#fffef9;
+  outline-color:#238044;
 }
-.categories { display:flex; flex-wrap:wrap; gap:7px; }
+.categories { display:flex;flex-wrap:wrap;gap:7px; }
 .chip {
-  background:white;
-  border:1px solid #d9e4da;
+  background:#fffdf5;
+  color:#31553b;
+  border:1px solid #d9dfc5;
   border-radius:30px;
-  padding:8px 12px;
+  padding:8px 13px;
   cursor:pointer;
 }
-.chip.active { background:var(--green); color:white; }
+.chip.active { background:#14532d;color:white;border-color:#14532d; }
 .grid {
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:17px;
 }
 .product {
-  border:1px solid #e5ece5;
-  border-radius:16px;
+  border:1px solid #ffffff;
+  border-radius:19px;
   overflow:hidden;
-  background:white;
+  background:#fffef9;
+  box-shadow:0 8px 23px #34542a12;
+  transition:transform .2s,box-shadow .2s;
 }
+.product:hover { transform:translateY(-4px);box-shadow:0 13px 28px #34542a20; }
 .product-art {
-  height:125px;
+  height:130px;
   display:grid;
   place-items:center;
-  background:#f2f8ee;
-  font-size:55px;
+  font-size:57px;
+  background:
+    radial-gradient(circle at 50% 40%,#fff9dc,#e5f2db);
 }
-.product-body { padding:13px; }
-.product h3 { margin:0; font-size:16px; }
-.product small { color:var(--muted); }
+.product-body { padding:14px; }
+.product h3 { margin:0;font-size:16px;color:#24432e; }
+.product small { color:#758174; }
 .price-row {
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:5px;
-  margin-top:12px;
+  margin-top:13px;
 }
-.price { color:var(--green); font-weight:900; }
+.price { color:#176638;font-weight:900; }
 .add {
-  background:#e5f4e7;
-  color:var(--green);
-  border:0;
+  background:#e5f3df;
+  color:#14532d;
+  border:1px solid #c6e1bd;
   border-radius:9px;
-  padding:8px 10px;
+  padding:8px 11px;
   font-weight:bold;
+  cursor:pointer;
 }
-.note { font-size:12px; color:var(--muted); }
+.note { font-size:12px;color:#69776b;margin-top:20px; }
 .order-panel {
-  background:#eaf6e9;
-  border-radius:22px;
-  padding:28px;
+  background:linear-gradient(120deg,#dff1d7,#fff2c8);
+  border:1px solid #ffffff;
+  border-radius:25px;
+  padding:30px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:18px;
+  box-shadow:0 12px 30px #365d3010;
 }
+.order-panel h2 { color:#17472b;margin-top:0; }
+.order-panel p { color:#5e6e60; }
 .contact-grid {
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:16px;
+  gap:18px;
+}
+.contact-card {
+  border-top:3px solid #d9b85d;
 }
 footer {
-  background:#123d25;
-  color:white;
+  background:linear-gradient(120deg,#103d24,#1b6036,#103d24);
+  color:#fff8df;
   text-align:center;
-  padding:25px;
+  padding:30px 18px;
+  border-top:3px solid #e6c66c;
 }
-footer p { color:#c8dfcd; font-size:13px; }
+footer p { color:#d7e7d7;font-size:13px; }
 .cartbar {
   position:fixed;
-  right:14px;
-  bottom:14px;
+  right:15px;
+  bottom:15px;
   z-index:20;
-  box-shadow:0 5px 20px #173c2540;
+  border:2px solid #ffe5a1;
+  box-shadow:0 7px 24px #173c2540;
 }
 @media(max-width:760px) {
   .nav { flex-wrap:wrap; }
-  nav { gap:10px; font-size:12px; }
+  nav { gap:11px;font-size:12px; }
   .nav>.btn { display:none; }
-  .hero-inner { grid-template-columns:1fr; padding:40px 20px; }
-  .hero-art { min-height:190px; font-size:85px; }
+  .hero-inner { grid-template-columns:1fr;padding:42px 20px; }
+  .hero-art { min-height:200px;font-size:88px; }
   .features,.contact-grid { grid-template-columns:1fr; }
-  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-  .product-art { height:100px; }
-  .order-panel { flex-direction:column; align-items:flex-start; }
+  .grid { grid-template-columns:repeat(2,minmax(0,1fr));gap:11px; }
+  .product-art { height:105px; }
+  .order-panel { flex-direction:column;align-items:flex-start; }
+  section { padding:40px 15px; }
 }
 </style>
 </head>
-<body>
 
+<body>
 <div class="topbar">
-  Welcome to Sri Lakshmi Grocery Store • Everyday Essentials
+  🌿 Everyday Essentials • Welcome to Sri Lakshmi Grocery Store 🌿
 </div>
 
 <header>
@@ -243,7 +316,7 @@ footer p { color:#c8dfcd; font-size:13px; }
       <a href="#products">Products</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn green" href="#products">Shop Products</a>
+    <a class="btn green" href="#products">Explore Products</a>
   </div>
 </header>
 
@@ -251,19 +324,19 @@ footer p { color:#c8dfcd; font-size:13px; }
 <section class="hero" id="home">
   <div class="hero-inner">
     <div>
-      <span class="eyebrow">YOUR NEIGHBOURHOOD GROCERY STORE</span>
-      <h1>Everyday Needs,<br><span>Made Simple.</span></h1>
+      <span class="eyebrow">🌾 YOUR NEIGHBOURHOOD GROCERY STORE</span>
+      <h1>Fresh Choices,<br><span>Happy Homes.</span></h1>
       <p>
-        Explore everyday grocery essentials in one place.
-        Browse our sample catalogue and contact the store
-        to confirm product availability and current prices.
+        Discover everyday grocery essentials in one convenient place.
+        Explore our sample catalogue and contact the store to confirm
+        current prices and availability.
       </p>
       <p>
         <a class="btn green" href="#products">🛍️ Browse Products</a>
         <a class="btn light" href="#contact">☎ Contact Us</a>
       </p>
     </div>
-    <div class="hero-art">🧺</div>
+    <div class="hero-art">🧺🥬</div>
   </div>
 </section>
 
@@ -271,18 +344,18 @@ footer p { color:#c8dfcd; font-size:13px; }
   <div class="container">
     <div class="section-head">
       <h2>Why Shop With Us?</h2>
-      <p>A simple way to explore everyday essentials.</p>
+      <p>Everyday shopping made simple.</p>
     </div>
     <div class="features">
       <article class="feature">
         <div class="emoji">🌾</div>
         <h3>Daily Essentials</h3>
-        <p>Explore common pantry and household products.</p>
+        <p>Explore pantry staples and everyday household products.</p>
       </article>
       <article class="feature">
         <div class="emoji">🔎</div>
         <h3>Easy Shopping</h3>
-        <p>Search and filter products quickly.</p>
+        <p>Search and filter products in just a few taps.</p>
       </article>
       <article class="feature">
         <div class="emoji">🤝</div>
@@ -297,12 +370,12 @@ footer p { color:#c8dfcd; font-size:13px; }
   <div class="container">
     <div class="section-head">
       <h2>Our Grocery Products</h2>
-      <p>Sample products — please confirm current prices.</p>
+      <p>Sample catalogue — please confirm current prices.</p>
     </div>
 
     <div class="tools">
       <input class="search" id="search" type="search"
-        placeholder="Search rice, dal, oil..."
+        placeholder="🔍 Search rice, dal, oil..."
         aria-label="Search products">
       <div class="categories" id="categories">
         <button class="chip active" data-cat="All">All</button>
@@ -316,8 +389,8 @@ footer p { color:#c8dfcd; font-size:13px; }
 
     <div class="grid" id="productGrid"></div>
     <p class="note">
-      Demo notice: Products and prices are examples only.
-      Confirm actual inventory and prices before using this as a live catalogue.
+      Demo notice: Products and prices shown here are examples only.
+      Confirm real prices and availability before using this as a live catalogue.
     </p>
   </div>
 </section>
@@ -326,8 +399,8 @@ footer p { color:#c8dfcd; font-size:13px; }
   <div class="container">
     <div class="order-panel">
       <div>
-        <h2>Want to Place an Order?</h2>
-        <p>Ask the store about availability, prices and delivery.</p>
+        <h2>Ready to Shop? 🛍️</h2>
+        <p>Ask the store about product availability, prices and delivery.</p>
       </div>
       <a class="btn green" href="#contact">Contact Store →</a>
     </div>
@@ -337,8 +410,8 @@ footer p { color:#c8dfcd; font-size:13px; }
 <section id="contact">
   <div class="container">
     <div class="section-head">
-      <h2>Contact Sri Lakshmi Grocery Store</h2>
-      <p>Confirmed store contact details need to be added.</p>
+      <h2>Contact Our Store</h2>
+      <p>Store contact details must be confirmed before publishing.</p>
     </div>
     <div class="contact-grid">
       <article class="contact-card">
@@ -353,16 +426,15 @@ footer p { color:#c8dfcd; font-size:13px; }
       </article>
     </div>
     <p class="note">
-      The WhatsApp and Call buttons need the correct store numbers
-      before they can contact anyone.
+      The buttons need the correct store numbers before they can contact anyone.
     </p>
   </div>
 </section>
 </main>
 
 <footer>
-  <strong>Sri Lakshmi Grocery Store</strong>
-  <p>Everyday essentials, made simple.</p>
+  <strong>🛒 Sri Lakshmi Grocery Store</strong>
+  <p>Fresh Choices • Happy Homes</p>
   <p>© <span id="year"></span> Sri Lakshmi Grocery Store • Demo Website</p>
 </footer>
 
@@ -371,7 +443,8 @@ footer p { color:#c8dfcd; font-size:13px; }
 </button>
 
 <script>
-// Add the confirmed store numbers here before enabling contact buttons.
+// Add confirmed store numbers here.
+// WhatsApp number must include country code, without + or spaces.
 const STORE_WHATSAPP = "";
 const STORE_PHONE = "";
 
@@ -439,6 +512,18 @@ document.querySelectorAll("#categories .chip").forEach(btn => {
 
 search.addEventListener("input", renderProducts);
 
+function sendWhatsApp(message) {
+  if (!STORE_WHATSAPP) {
+    alert("Demo website: add the confirmed store WhatsApp number first.");
+    return;
+  }
+  window.open(
+    "https://wa.me/" + STORE_WHATSAPP + "?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
+}
+
 document.getElementById("cartBtn").addEventListener("click", () => {
   if (!cart.length) {
     alert("Your cart is empty. Add a product first.");
@@ -450,42 +535,28 @@ document.getElementById("cartBtn").addEventListener("click", () => {
     return acc;
   }, {});
 
-  const message = "Hello Sri Lakshmi Grocery Store, I would like to enquire about:\n" +
+  const message =
+    "Hello Sri Lakshmi Grocery Store. I would like to enquire about:\n" +
     Object.entries(summary).map(([name, quantity]) =>
-      `- ${name} x ${quantity}`
+      "- " + name + " x " + quantity
     ).join("\n") +
     "\nPlease confirm availability and current prices.";
 
-  if (STORE_WHATSAPP) {
-    window.open(
-      "https://wa.me/" + STORE_WHATSAPP + "?text=" +
-      encodeURIComponent(message),
-      "_blank"
-    );
-  } else {
-    alert("Demo only: add the confirmed WhatsApp number first.");
-  }
+  sendWhatsApp(message);
 });
 
 document.getElementById("whatsappBtn").addEventListener("click", () => {
-  if (STORE_WHATSAPP) {
-    const message = "Hello Sri Lakshmi Grocery Store. Please share today's product availability and prices.";
-    window.open(
-      "https://wa.me/" + STORE_WHATSAPP + "?text=" +
-      encodeURIComponent(message),
-      "_blank"
-    );
-  } else {
-    alert("Demo only: add the confirmed WhatsApp number first.");
-  }
+  sendWhatsApp(
+    "Hello Sri Lakshmi Grocery Store. Please share today's product availability and prices."
+  );
 });
 
 document.getElementById("callBtn").addEventListener("click", () => {
-  if (STORE_PHONE) {
-    window.location.href = "tel:" + STORE_PHONE;
-  } else {
-    alert("Demo only: add the confirmed store phone number first.");
+  if (!STORE_PHONE) {
+    alert("Demo website: add the confirmed store phone number first.");
+    return;
   }
+  window.location.href = "tel:" + STORE_PHONE;
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
